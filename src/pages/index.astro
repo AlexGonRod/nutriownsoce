@@ -1,0 +1,14 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Form from '@components/Form.svelte';
+---
+
+<Layout title="NutriOwnscore">
+	<main class="container max-w-lg m-auto">
+        <header class="py-4">
+            <h3 class="title text-[#7e7e7e] text-xl my-3 mx-4 uppercase">Nutri-Score</h3>
+        </header>
+
+        <Form client:load/>
+    </main>
+</Layout>
