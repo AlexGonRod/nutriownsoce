@@ -27,7 +27,7 @@
 			<span>{score.sugars}</span>
 			</div>
 		</section>
-		<div class="scores w-[220px] flex items-center content-stretch h-100">
+		<div id="scores" title="scores" class="scores w-[220px] flex items-center content-stretch h-100">
 			<span class="a {score.grade === 'a' ? 'selected' : ''} bg-[#86bd2b] rounded-tl-[20px] rounded-bl-[20px] flex-grow text-center text-gray-200/50 flex items-center justify-center text-[40px] font-bold">
 				A</span>
 			<span class="b {score.grade === 'b' ? 'selected' : ''}bg-[#facc04] l-[30px] flex-grow text-center text-gray-200/50 flex items-center justify-center text-[40px] font-bold">B</span>
