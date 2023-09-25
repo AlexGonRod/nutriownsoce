@@ -1,7 +1,10 @@
-import { API_ENDPOINT, API_OPTIONS } from "./const"
+import { API_ENDPOINT, API_OPTIONS, API_SEARCH, API_OPTIONS_SEARCH } from "./const"
 
-export default async function api() {
-    const endpoint = `${API_ENDPOINT}3017624010701${API_OPTIONS}`
+type Product = String;
+
+export default async function api(product: Product) {
+    // const endpoint = `${API_ENDPOINT}3017624010701${API_OPTIONS}`
+    const endpoint = `${API_ENDPOINT}${product}${API_OPTIONS}`
     const res = await fetch(endpoint, {
         method: 'GET',
     })
