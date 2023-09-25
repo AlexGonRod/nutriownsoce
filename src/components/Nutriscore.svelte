@@ -8,7 +8,7 @@
 	// $: console.log(scores.product.nutrition_grades);
 	$: values = {
 		Carbs: scores?.product.nutriments.carbohydrates,
-		Eºnergy: scores?.product.nutriments.energy,
+		Energy: scores?.product.nutriments.energy,
 		Fats: scores?.product.nutriments.fat,
 		Sugars: scores?.product.nutriments.sugars,
 		Proteins: scores?.product.nutriments.proteins,
