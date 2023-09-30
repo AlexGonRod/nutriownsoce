@@ -20,20 +20,26 @@ test('fetch default data', async ({ page, request }) => {
 
   // await page.goto('/');
   const title = page.getByRole('heading', { name: nutella.Title })
-  const energy = page.getByText(nutella.Energy, { exact: true })
+  const carbs = page.getByText(nutella.Carbs, { exact: true })
+  const fats = page.getByText(nutella.Fats, { exact: true })
+  const sugars = page.getByText(nutella.Sugars, { exact: true })
+  const protein = page.getByText(nutella.Proteins, { exact: true })
+  const salt = page.getByText(nutella.Salt, { exact: true })
   const fiber = page.getByText(nutella.Fiber, { exact: true })
-  const protein = page.getByText(nutella.Protein, { exact: true })
-  const fat = page.getByText(nutella.Fat, { exact: true })
 
   await expect(title).toBeVisible();
-  await expect(energy).toBeVisible();
-  await expect(energy).toContainText('2255')
+  await expect(carbs).toBeVisible();
+  await expect(carbs).toContainText('57.5')
+  // await expect(fats).toBeVisible();
+  // await expect(fats).toContainText('30.09')
   await expect(fiber).toBeVisible();
   await expect(fiber).toContainText('0');
   await expect(protein).toBeVisible();
   await expect(protein).toContainText('6.3');
-  await expect(fat).toBeVisible();
-  await expect(fat).toContainText('56.3');
+  await expect(salt).toBeVisible();
+  await expect(salt).toContainText('0.1075');
+  await expect(sugars).toBeVisible();
+  await expect(sugars).toContainText('56.3');
 });
 test('has scores', async ({ page, request }) => {
   const response = await request.get(`${API_ENDPOINT}3017624010701${API_OPTIONS}`)

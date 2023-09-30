@@ -1,47 +1,65 @@
 <script>
-    export let level;
+    export let levels;
+    export let percentage;
+    $: console.log(levels)
     export let title;
+    function getColor(level) {
+        let color;
+        switch (level) {
+            case 'high':
+                // console.log(level)
+                color ='bg-pink-400';
+                break;
+            case 'low':
+                color ='bg-green-400'
+                break
+            default:
+                color = 'bg-indigo-400'
+                break;
+        }
+        return color;
+    }
 </script>
 
-<div class="relative p-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl w-60 md:w-72 dark:bg-gray-800 dark:text-gray-100">
+<div class="relative p-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl w-full md:w-72 dark:bg-gray-800 dark:text-gray-100">
     <div class="w-full">
-        <p class="mb-4 text-2xl font-light text-gray-700 dark:text-white">
+        <p class="mb-4 text-lg  font-light text-gray-700 dark:text-white">
             {title}
         </p>
+            <div class="flex items-center justify-between text-sm text-gray-400">
+                <p>
+                    Fats
+                </p>
+                <p>
+                    {levels.fat}
+                </p>
+            </div>
+            <div class="w-full h-2 mb-4 bg-white rounded-full">
+                <div class="h-full text-xs text-center text-white {getColor(levels.fat)} rounded-full" style="width:{percentage.Fats*10}%">
+                </div>
+            </div>
         <div class="flex items-center justify-between text-sm text-gray-400">
             <p>
-                Carbohidrates
+                Salt
             </p>
             <p>
-                6/10
+                {levels.salt}
             </p>
         </div>
-        <div class="w-full h-2 mb-4 bg-indigo-100 rounded-full">
-            <div class="w-2/3 h-full text-xs text-center text-white bg-indigo-400 rounded-full">
+        <div class="h-2 mb-4 bg-white rounded-full">
+            <div class="h-full text-xs text-center text-white {getColor(levels.salt)} rounded-full" style="width:{percentage.Salt*10}%">
             </div>
         </div>
         <div class="flex items-center justify-between text-sm text-gray-400">
             <p>
-                Fats
+                Sugars
             </p>
             <p>
-                2/8
+                {levels.sugars}
             </p>
         </div>
-        <div class="w-full h-2 mb-4 bg-blue-100 rounded-full">
-            <div class="w-1/4 h-full text-xs text-center text-white bg-blue-400 rounded-full">
-            </div>
-        </div>
-        <div class="flex items-center justify-between text-sm text-gray-400">
-            <p>
-                Proteines
-            </p>
-            <p>
-                8/8
-            </p>
-        </div>
-        <div class="w-full h-2 bg-pink-100 rounded-full">
-            <div class="w-full h-full text-xs text-center text-white bg-pink-400 rounded-full">
+        <div class="w-full h-2 bg-white rounded-full">
+            <div class="h-full text-xs text-center text-white {getColor(levels.sugars)} rounded-full" style="width: {percentage.Sugars*10}%">
             </div>
         </div>
     </div>

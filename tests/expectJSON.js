@@ -1,9 +1,13 @@
 export default {
     nutella: {
         Title: "Nutella",
-        Energy: "2255",
         Fiber: "0",
-        Protein: "6.3",
-        Fat: "56.3"
+        Carbs: "57.5",
+        Energy: "2255",
+        Proteins: "6.3",
+        Fats: "30.09",
+        Sugars: "56.3",
+        Salt:"0.1075",
+        Proteins: "6.3"
     }
 }
