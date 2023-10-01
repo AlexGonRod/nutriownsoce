@@ -6,11 +6,11 @@
 </script>
 
 <div
-	class="py-4 flex flex-row gap-2 flex-wrap items-center justify-left w-full mx-auto"
+	class="py-4 flex flex-row gap-2 flex-wrap items-center md:justify-start lg:justify-center   w-full mx-auto"
 >
 	{#each value as val}
 		<div
-			class="p-4 bg-white shadow-lg rounded-2xl w-36 dark:bg-gray-800 flex-grow"
+			class="p-4 bg-white shadow-lg rounded-2xl w-36 dark:bg-gray-800"
 		>
 			<div class="flex items-center">
 				<p class="ml-2 text-gray-700 text-md dark:text-gray-50">

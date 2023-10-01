@@ -5,6 +5,8 @@
 	import Chart from '@components/Chart.svelte';
 
 	export let scores;
+	$: console.log(scores)
+	export let data;
 	$: values = {
 		Carbs: scores?.product.nutriments.carbohydrates,
 		Energy: scores?.product.nutriments.energy,
@@ -22,8 +24,8 @@
 		// Fiber: scores?.product.nutriscore_data.fiber_points,
 		// Proteins: scores?.product.nutriscore_data.proteins_points,
 	};
-	$: image = scores?.product.image_thumb_url
-	$: brand = scores?.product.brands
+	$: image = data?.product.image_thumb_url
+	$: brand = data?.product.brands
 	// $: console.log(scores.product.selected_images.front.thumb.en);
 </script>
 
@@ -39,7 +41,7 @@
 				src={image} />
 				<div class="flex flex-col">
 					<h2 class="title text-[#7e7e7e] text-xl  uppercase text-left">
-						{scores.product.product_name}
+						{data.product.product_name}
 					</h2>
 					<span class="text-sm font-normal ">{brand}</span>
 					<Chart score={scores.product.nutrition_grades}/>
