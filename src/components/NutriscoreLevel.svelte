@@ -1,13 +1,12 @@
 <script>
     export let levels;
     export let percentage;
-    $: console.log(levels)
+
     export let title;
     function getColor(level) {
         let color;
         switch (level) {
             case 'high':
-                // console.log(level)
                 color ='bg-pink-400';
                 break;
             case 'low':

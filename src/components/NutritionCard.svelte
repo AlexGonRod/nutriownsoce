@@ -2,7 +2,6 @@
 	export let info = [];
 	export let progress: Boolean = false;
 	$: value = Object.entries(info);
-	// $: console.log(info);
 </script>
 
 <div

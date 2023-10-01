@@ -5,7 +5,7 @@
 	import Chart from '@components/Chart.svelte';
 
 	export let scores;
-	$: console.log(scores)
+
 	export let data;
 	$: values = {
 		Carbs: scores?.product.nutriments.carbohydrates,
@@ -20,13 +20,10 @@
 		Fats: scores?.product.nutriscore_data.saturated_fat_points,
 		Sugars: scores?.product.nutriscore_data.sugars_points,
 		Salt: scores?.product.nutriscore_data.sodium_points,
-		// Energy: scores?.product.nutriscore_data.energy_points,
-		// Fiber: scores?.product.nutriscore_data.fiber_points,
-		// Proteins: scores?.product.nutriscore_data.proteins_points,
 	};
 	$: image = data?.product.image_thumb_url
 	$: brand = data?.product.brands
-	// $: console.log(scores.product.selected_images.front.thumb.en);
+	
 </script>
 
 {#await scores}
