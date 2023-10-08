@@ -4,8 +4,8 @@
 
 </script>
 
-<form action="" class="fixed z-10 bottom-0 left-0 w-full p-4 bg-gray-50 ">
-	<div class="container flex flex-col justify-start">
+<form action="" class="fixed z-10 bottom-0 left-0 w-full py-4 px-8 bg-gray-50 ">
+	<div class="flex flex-col justify-center">
 		<Input placeholder="Search"/>
 		<div class="flex flex-row justify-between gap-x-2 my-4">
 			<Button text="Validate"/>

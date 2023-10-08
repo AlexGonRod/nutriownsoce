@@ -1,35 +1,64 @@
 <script lang="ts">
+	import Salt from './Salt.svelte'
+	import Sugar from './Sugar.svelte'
+	import Fish from './Fish.svelte'
+	import Cheese from './Cheese.svelte'
 	export let info = [];
 	export let progress: Boolean = false;
 	$: value = Object.entries(info);
+
+	function getIcon(value) {
+		let icon;
+
+		switch (value) {
+			case "Carbs":
+				icon = Fish
+				break;
+			case "Sugars":
+				icon = Sugar
+				break;
+			case "Salt":
+				icon = Salt
+				break;
+			default:
+				icon = Cheese
+				break;
+		}
+		return icon
+	}
 </script>
 
 <div
-	class="py-4 flex flex-row gap-2 flex-wrap items-center md:justify-start lg:justify-center   w-full mx-auto"
+	class="py-4 flex flex-col gap-y-2 items-left justify-start flex-grow w-full mx-auto"
 >
 	{#each value as val}
 		<div
-			class="p-4 bg-white shadow-lg rounded-2xl w-36 dark:bg-gray-800"
+			class="px-4 py-2 flex flex-col h-20 dark:bg-gray-800 bg-white shadow-lg rounded-md"
 		>
-			<div class="flex items-center">
-				<p class="ml-2 text-gray-700 text-md dark:text-gray-50">
-					{val[0]}
-				</p>
-			</div>
-			<div class="flex flex-col justify-start">
-				<p
-					class="my-4 ml-2 text-2xl font-bold text-left text-gray-800 dark:text-white"
-				>
-					{val[1]}
-				</p>
-				{#if progress}
-					<div class="relative h-2 bg-gray-200 rounded w-28">
-						<div
-							class="absolute top-0 left-0 w-2/3 h-2 bg-green-500 rounded"
-						/>
+			<div class="flex flex-row justify-between dark:bg-gray-800 basis-2">
+				<div class="flex items-center">
+					<div class="icon mr-2">
+						<svelte:component this={getIcon(val[0])} />
 					</div>
-				{/if}
+					<p class="text-gray-700 text-lg dark:text-gray-50">
+						{val[0]}
+					</p>
+				</div>
+				<div class="flex justify-start">
+					<p
+						class="my-1 ml-2 text-base font-bold text-left text-gray-800 dark:text-white"
+					>
+						{val[1]}
+					</p>
+				</div>
 			</div>
+			<!-- {#if progress} -->
+			<div class="">
+			<div class=" my-2 relative bg-gray-200 rounded w-full">
+				<div class=" h-2 bg-green-500 rounded" />
+			</div>
+			</div>
+			<!-- {/if} -->
 		</div>
 	{/each}
 </div>
