@@ -3,11 +3,11 @@
 	import Sugar from './Sugar.svelte'
 	import Fish from './Fish.svelte'
 	import Cheese from './Cheese.svelte'
-	export let info = [];
+	export let info: [any];
 	export let progress: Boolean = false;
 	$: value = Object.entries(info);
 
-	function getIcon(value) {
+	function getIcon(value: string) {
 		let icon;
 
 		switch (value) {
@@ -28,7 +28,7 @@
 	}
 </script>
 
-<div
+<article
 	class="py-4 flex flex-col gap-y-2 items-left justify-start flex-grow w-full mx-auto"
 >
 	{#each value as val}
@@ -61,4 +61,4 @@
 			<!-- {/if} -->
 		</div>
 	{/each}
-</div>
+</article>

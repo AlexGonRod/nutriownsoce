@@ -2,22 +2,19 @@
 import Layout from '@layouts/Layout.astro';
 import Form from '@components/Form.svelte';
 import Nutriscore from '@components/Nutriscore.svelte';
-import api from '../lib/api';
-import { API_BASIC_INFO, API_ADVANCE_INFO } from "../lib/const"
 
-const data = await api('3017624010701$', API_BASIC_INFO);
-const scores = await api('3017624010701$', API_ADVANCE_INFO);
 ---
 
 <Layout title="Nutri-Ownscore">
 	<main class="container max-w-2xl m-auto">
 		<header>
-			<h1 class="title text-[#7e7e7e] text-xl text-left my-2 uppercase">
+			<h2 class="title text-[#7e7e7e] text-xl text-left my-2 uppercase">
 				Nutri-Score
-			</h1>
+			</h2>
 		</header>
 
 		<Form client:load />
-        <Nutriscore {scores} {data} client:load/>
+
+		<Nutriscore client:load/>
 	</main>
 </Layout>

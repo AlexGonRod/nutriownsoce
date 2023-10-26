@@ -5,9 +5,15 @@ type Options = String;
 
 export default async function api(product: Product, options: Options) {
     const endpoint = `${API_ENDPOINT}${product}?fields=${options}`
-    const res = await fetch(endpoint, {
-        method: 'GET',
-    })
-    const result = await res.json()
-    return result;
+
+    try {
+        const res = await fetch(endpoint, {
+            method: 'GET',
+        })
+        const result = await res.json()
+        return result;
+
+    } catch (error) {
+        throw new Error(`error getting data: ${error}`)
+    }
 }
