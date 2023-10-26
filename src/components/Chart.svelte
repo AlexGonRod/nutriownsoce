@@ -2,7 +2,7 @@
 	export let score;
 </script>
 
-<div
+<article
 	id="scores"
 	title="scores"
 	class="scores w-[220px] flex items-center content-stretch h-100"
@@ -38,7 +38,7 @@
 			: ''} bg-[#e63c07] l-[163px] rounded-tr-[20px] rounded-br-[20px] flex-grow text-center text-gray-200/50 flex items-center justify-center text-[24px] font-bold"
 		>E</span
 	>
-</div>
+</article>
 
 <style>
 	.container .scores-container .scores .selected {
