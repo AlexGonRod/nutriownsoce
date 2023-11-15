@@ -3,7 +3,8 @@
 	import NutritionCard from '@components/NutritionCard.svelte';
 	import NutriscoreLevel from '@components/NutriscoreLevel.svelte';
 	import Chart from '@components/Chart.svelte';
-	import { product, scores } from '../lib/store';
+	import Qrcode from '@components/Qrcode.svelte';
+	import { product, scores, isScanning } from '../lib/store';
 
 	$: values = {
 		Carbs:
@@ -34,21 +35,27 @@
 	$: image = $product?.productInfo?.image_thumb_url;
 	$: brand = $product?.productInfo?.brands;
 	$: name = $product?.productInfo?.product_name;
-
-	$: console.log($scores?.scoresInfo?.nutriments)
 </script>
 
+
+{#if $isScanning}
+	<Qrcode />
+{/if}
 {#if Object.values($product).length && Object.values($scores).length}
 	{#await $product}
 		<Loader />
 	{:then}
-		<section class="flex flex-col h-[120px] font-bold bg-white rounded-3xl">
-			<div class="scores-container relative h-[72px] rounded-3xl mx-1">
+		<section
+			class="flex flex-col h-[120px] font-bold bg-white rounded-3xl"
+		>
+			<div
+				class="scores-container relative h-[72px] rounded-3xl mx-1"
+			>
 				<div class="flex flex-row justify-start gap-4">
 					<img
 						alt="thumbnail"
 						class="block max-w-[15%] rounded-lg object-cover object-center bg-blend-overlay"
-						width="15%"
+						width="100%"
 						src={image}
 					/>
 					<header class="flex flex-col">
@@ -58,7 +65,9 @@
 							{name}
 						</h2>
 						<h3 class="text-sm font-normal">{brand}</h3>
-						<Chart score={$scores?.scoresInfo?.nutrition_grades} />
+						<Chart
+							score={$scores?.scoresInfo?.nutrition_grades}
+						/>
 					</header>
 				</div>
 				<section

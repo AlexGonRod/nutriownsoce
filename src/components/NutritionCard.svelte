@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Salt from './Salt.svelte'
-	import Sugar from './Sugar.svelte'
-	import Fish from './Fish.svelte'
-	import Cheese from './Cheese.svelte'
+	import Salt from './Salt.svelte';
+	import Sugar from './Sugar.svelte';
+	import Fish from './Fish.svelte';
+	import Cheese from './Cheese.svelte';
 	export let info: [any];
 	export let progress: Boolean = false;
 	$: value = Object.entries(info);
@@ -11,20 +11,20 @@
 		let icon;
 
 		switch (value) {
-			case "Carbs":
-				icon = Fish
+			case 'Carbs':
+				icon = Fish;
 				break;
-			case "Sugars":
-				icon = Sugar
+			case 'Sugars':
+				icon = Sugar;
 				break;
-			case "Salt":
-				icon = Salt
+			case 'Salt':
+				icon = Salt;
 				break;
 			default:
-				icon = Cheese
+				icon = Cheese;
 				break;
 		}
-		return icon
+		return icon;
 	}
 </script>
 
@@ -54,9 +54,9 @@
 			</div>
 			<!-- {#if progress} -->
 			<div class="">
-			<div class=" my-2 relative bg-gray-200 rounded w-full">
-				<div class=" h-2 bg-green-500 rounded" />
-			</div>
+				<div class=" my-2 relative bg-gray-200 rounded w-full">
+					<div class=" h-2 bg-green-500 rounded" />
+				</div>
 			</div>
 			<!-- {/if} -->
 		</div>
