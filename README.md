@@ -6,9 +6,9 @@ We are using [Astro](https://astro.build/) as the builder and [Svelte](https://s
 
 ## TO-DO's
 - Add more info
-- Fix some styles
-- Add functionality to the form
-- Add a barcode reader (maybe)
+- [x] Fix some styles
+- [x] Add functionality to the form
+- [x] Add a barcode reader (maybe)
 - Add testing with [Playwright](https://playwright.dev/)
 
 ## INSTRUCTIONS
